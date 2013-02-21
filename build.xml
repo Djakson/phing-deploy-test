@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<project name="gitPullTest" default="invalid">
+
+    <property name="tmp.dir" value="/home/djakson/tmp/git" />
+    <property name="repo.dir" value="git@github.com:Djakson/phing-deploy-test.git"/>
+
+    <resolvepath propertyName="tmp.dir.resolved" file="${tmp.dir}" />
+    <resolvepath propertyName="repo.dir.resolved" file="${repo.dir}" />
+
+    <target name="invalid">
+        <fail>This file should only be run via a testcase</fail>
+    </target>
+
+    <target name="deploy" description="all parameters present">
+        <gitclone
+                repository="${repo.dir.resolved}"
+                targetPath="${tmp.dir.resolved}" />
+        <gitpull
+                repository="${tmp.dir.resolved}"
+                source="origin" refspec="foobranch"
+                strategy="recursive" keep="true"
+                force="true" quiet="true" norebase="true" />
+    </target>
+
+
+
+</project>

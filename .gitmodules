@@ -1,0 +1,3 @@
+[submodule "vendor/Phingistrano"]
+	path = vendor/Phingistrano
+	url = git://github.com/CodeMeme/Phingistrano.git
